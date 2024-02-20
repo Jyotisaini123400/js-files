@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //function declaration:- function that can be used before it's declared !
+// function jyoti(){
+//     console.log("Hello my name is jyoti")
+// }
+// jyoti()
+// jyoti()
+
+// function fruiteprocess(apple,orange){
+//     console.log(apple,orange);
+//     const juice=`Juice with ${apple} ,apple and ${orange}, orange`;
+// return juice;
+// }
+// const JuiceName=fruiteprocess(2,6);
+// console.log(JuiceName)
+
+// const JuiceSecond=fruiteprocess(21,16);
+// console.log(JuiceSecond)
+// //function_declaration and Expression..............
+
+
+
+// //Function Declaration;
+// function calcAge(BirthYear){
+// return 2038-BirthYear;
+// }
+// const age1=calcAge(2005);
+
+// console.log(age1);
+// //function Expression..... Essentially a function value stored in a variable !
+
+// const calaAge2=function(BirthYear){
+//     return 2045-BirthYear;
+// }
+// const age2=calcAge(2005);
+
+// console.log(age2)
+
+// // Arrow functions.........Great for a quick one-line function.Has no this keywords!
+
+// const calaAge3=birthyear=>2027-birthyear;
+// const age3=calaAge3(2005)
+// console.log(age3);
+
+
+// const yearRetirement=(birthyear,firstname)=>{
+// const age=2037-birthyear;
+// const retirment=65-age;
+// return `${firstname} ,retire in ${retirment} year.`
+// }
+// console.log(yearRetirement(2005,"Jyoti"))
+// console.log(yearRetirement(1985,"Lalita"))
+
+// Function calling other function........
+
+// const cutPieces=function(fruite){
+//     return fruite*4;
+// }
+
+// function fruiteprocess(apple,orange){
+//     const applePieces=cutPieces(apple);
+//     const orangePieces=cutPieces(orange);
+//     console.log(apple,orange);
+//     const juice=`Juice with ${applePieces} , pieces of apple and ${orangePieces},pieces of orange`;
+//   return juice;
+// }
+// console.log(fruiteprocess(2,3));
+
+//reviwing functions.......
+const calAge=function(birthyear){
+    return 2037-birthyear;
+}
+const yearRetirement=(birthyear,firstname)=>{
+const age=calAge(birthyear);
+const retirment=65-age;
+
+   if(retirment>0){
+       console.log( `${firstname} ,retire in ${retirment} year.`)
+       return retirment;
+   }
+   else{
+    console.log(`${firstname}, has already retired `)
+    return -1;
+   }
+}
+
+console.log(yearRetirement(1967,'Jyoti'))
+
+
+// Three diffrent types of functions, but they all work in a similar way: receive  input data,transform data and then output data.
+
+    </script>
+    
+</body>
+</html>

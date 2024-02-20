@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+const Jyoti={
+firstName : 'jyoti',
+roll : 'student',
+friends : ['Neha','sapna','kajal','sanajana'],
+number : 98765,
+}
+console.log(Jyoti);
+console.log(Jyoti.firstName );
+console.log(Jyoti.friends)
+console.log(Jyoti['roll'])
+const nameKey ='Name';
+console.log(Jyoti);
+console.log(Jyoti['first'+ nameKey]);
+
+
+
+const interestedId=prompt("what do you want do know abhout Jyoti?choose between  firstName, roll, friends,number")
+if(Jyoti[interestedId]){
+console.log(Jyoti[interestedId])
+}
+else{
+    console.log("Wrong request ! choose between fristName,roll , friends,number");  
+}
+//add new objects in Jyoit
+Jyoti.location='Haryana';
+Jyoti['email']='jyoti.saini@surakshitnivesh.com';
+console.log(Jyoti[interestedId]);
+//challenge
+console.log(`${Jyoti.firstName} has  ${Jyoti.friends.length} ,friends and his best friends is called ${Jyoti.friends[1]}`)
+
+
+    </script>
+</body>
+</html>
