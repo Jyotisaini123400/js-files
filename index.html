@@ -1,39 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Model window</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button class="show-model">Model1</button>
+    <button class="show-model">Model2</button>
+    <button class="show-model">Model3</button>
+    <div class="model hidden" id="hidden">
+      <button class="close-model">&times;</button>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>JavaScript Fundamentals – Part 1</title>
+      <h1>I'm a model hidden</h1>
 
-  <style>
-    body {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(to top left, #28b487, #7dd56f);
-    }
-
-    h1 {
-      font-family: sans-serif;
-      font-size: 50px;
-      line-height: 1.3;
-      width: 100%;
-      padding: 30px;
-      text-align: center;
-      color: white;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- <script>
-    console.log(2 + 23)
-
-  </script> -->
-  <h1>JavaScript Fundamentals – Part 1</h1>
-</body>
-<link rel="stylesheet" href="script.js">
-
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, temporibus
+        laborum. Optio in adipisci, itaque, eius ipsam dicta voluptatum rerum
+        natus vero, accusamus est deserunt ullam illo? Alias, enim consequatur?
+        Assumenda esse at velit mollitia quos doloremque culpa eos dolores vitae
+        natus iure obcaecati impedit, illum inventore temporibus ipsum laborum
+        labore, quis magni omnis ad? Sint in sed aliquid sapiente?
+      </p>
+    </div>
+    <div class="overlay hidden"></div>
+  </body>
+  <script src="script.js"></script>
 </html>
