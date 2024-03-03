@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SCOPING</title>
+  </head>
+  <body>
+    <script>
+      function clcAge(birthday) {
+        const name = "jyoti";
+        const age = 2024 - birthday;
+        function printage() {
+          const output = `I am ${name} and i am ${age} years old`;
+          console.log(output);
+        }
+        printage();
+
+        return age;
+      }
+      const lastname = "saini";
+      clcAge(2005);
+    </script>
+  </body>
+</html>
