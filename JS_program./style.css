@@ -15,16 +15,20 @@ body {
 }
 /* starting main program*/
 main {
-  height: 70vh;
-  width: 60vw;
+  height: 71vh;
+  width: 61vw;
   position: relative;
   color: black;
-  border-radius: 10px;
-  background-color: rgb(226, 223, 219);
+  border-radius: 15px;
   align-items: center;
   justify-content: center;
   text-align: center;
   display: flex;
+  background-color: rgba(255, 255, 255, 0.164);
+
+  object-fit: cover;
+  object-position: cover;
+
   filter: blur();
   backdrop-filter: blur(200px);
 }
@@ -34,26 +38,18 @@ section {
   border: 1px solid transparent;
   justify-content: center;
 }
-
 h1,
 p {
   margin: 20px;
 }
-/* .player {
-  flex: 50%;
-  border: wpx solid black;
-  padding: 9rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
- 
-} */
-.player-Active {
-  background-color: rgb(224, 224, 224);
+
+.player--Active {
+  background-color: rgba(224, 224, 224, 0.664);
   transition: all 0.75s;
+  border-radius: 10px;
 }
-.player-Active.current {
-  opacity: 1;
+.player--Active.current {
+  opacity: 1px;
 }
 .current {
   height: 100px;
@@ -65,6 +61,7 @@ p {
   color: white;
   border-radius: 10px;
 }
+
 img.dice {
   position: absolute;
   height: 90px;
@@ -80,8 +77,8 @@ img.dice {
 .current--lable {
   font-size: 1.5rem;
 }
-.current-score {
-  font-size: 1.2rem;
+.current--score {
+  font-size: 1.4rem;
 }
 .btn {
   height: 40px;
@@ -114,6 +111,7 @@ img.dice {
   top: 2rem;
   border: 2px solid black;
   height: 60px;
+  font-size: 1.3rem;
   width: 100px;
   position: absolute;
   /* margin-bottom: 60vh; */
@@ -131,6 +129,8 @@ img.dice {
   height: 40px;
   width: 100px;
   position: absolute;
+  font-size: 1.3rem;
+
   /* margin-bottom: 60vh; */
   margin-left: 60px;
   margin-top: 20vh;
@@ -146,6 +146,8 @@ img.dice {
   height: 40px;
   width: 100px;
   position: absolute;
+  font-size: 1.3rem;
+
   /* margin-bottom: 60vh; */
   margin-left: 60px;
   margin-top: 50vh;
@@ -159,7 +161,8 @@ img.dice {
 }
 
 .player--winner {
-  background-color: #2f2f2f;
+  background-color: #1d1c1c;
+  color: white;
 }
 .player--winner.name {
   font-weight: 400;
