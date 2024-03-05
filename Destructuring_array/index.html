@@ -1,0 +1,36 @@
+<script>
+  "use strict";
+  const newArray = {
+    name: "jyoti saini",
+    family: ["Darshan", "Mukesh", "Radha"],
+    fri: ["Neha", "Kajal", "sapna", "jyoti"],
+    food: ["burger", "pizza", "pasta", "meggie"],
+    order: function (foodIndex, friIndex) {
+      return [this.food[foodIndex], this.fri[friIndex]];
+    },
+  };
+  const arr = [1, 2, 3, 4];
+  const a = arr[0];
+  const b = arr[1];
+  const c = arr[2];
+  const d = arr[3];
+  const [x, y, z, h] = arr;
+  console.log(x, y, z, h);
+  //   const [first, secnond] = newArray.family;
+  //   console.log(first, secnond);
+  const ne1 = newArray.name;
+  console.log(ne1);
+  //switching variables
+  let [family, friend] = newArray.family;
+  console.log(family, friend);
+
+  [family, friend] = [friend, family];
+  console.log(family, friend);
+  //receive 2 return value form a function
+  const [main, foods] = newArray.order(1, 3);
+  console.log(main, foods);
+
+  const nested = [1, 2, [(3, 4)]];
+  const [i, , [j, k]] = nested;
+  console.log(i, j, k);
+</script>
