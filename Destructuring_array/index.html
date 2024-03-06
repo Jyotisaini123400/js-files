@@ -116,9 +116,21 @@
   // newArray.odermeggie(ingredients[0], ingredients[1], ingredients[2]);
   // newArray.odermeggie(...ingredients);
   // //object
-  const NewArray = { founderin: 2005, ...newArrayName, name: "Saini" };
-  console.log(NewArray);
-  const NewArrayCopy = { ...NewArray };
-  NewArrayCopy.name = "Shiv Sanker";
-  console.log(NewArrayCopy);
+  // const NewArray = { founderin: 2005, ...newArrayName, name: "Saini" };
+  // console.log(NewArray);
+  // const NewArrayCopy = { ...NewArray };
+  // NewArrayCopy.name = "Shiv Sanker";
+  // console.log(NewArrayCopy);
+
+  //Rest pattern and parameters
+  //spread ,because on Right side of  assignment operator(=)
+  const rest = [1, 2, ...[3, 4]];
+  //Rest ,because on Left side of assignment operator(=)
+  const [a1, b1, ...others] = [1, 2, 3, 4];
+  console.log(a1, b1, others);
+  const [, pizza, , meggie, ...othersfood] = [
+    ...newArray.food,
+    ...newArray.fri,
+  ];
+  console.log(pizza, meggie, othersfood);
 </script>
