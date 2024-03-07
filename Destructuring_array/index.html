@@ -179,4 +179,31 @@
   //Nullish : null and undefined (Not 0 or '')
   const gustcorrect = newArray.newOpen ?? 23;
   console.log(gustcorrect);
+  //Logical Assignment Operator
+  const rest1 = {
+    name: "Saini",
+    num: 0,
+  };
+  const rest2 = {
+    State: "Haryana",
+    pincode: 121004,
+  };
+  //OR assignment operator
+  // rest1.name = rest1.name || "Jyoti";
+  // rest2.name = rest2.name || 80;
+  // rest1.name ||= "Jyoti";
+  // rest1.num ||= 90;
+  // rest2.pincode ||= 189;
+  // console.log(rest1);
+  // console.log(rest2);
+
+  //Nullish assignmet operator (Null or undefined)
+  rest1.name ??= 80;
+  rest2.name ??= 90;
+  //AND assignment operator
+  rest1.state &&= "<ANONYMOUS>";
+  rest2.state &&= "<ANONYMOUS>";
+
+  console.log(rest1);
+  console.log(rest2);
 </script>
