@@ -8,7 +8,7 @@
     order: function (foodIndex, friIndex) {
       return [this.food[foodIndex], this.fri[friIndex]];
     },
-    openOne: {
+    openwith: {
       mon: {
         class1: 12,
         class2: 21,
@@ -27,10 +27,14 @@
         `Home stay ${this.fri[friIndex]} and food ${this.food[foodIndex]} today ${Day} and time ${time} address  ${address}`
       );
     },
-    odermeggie: function (ing1, ing2, ing3) {
+    ordermeggie: function (ing1, ing2, ing3) {
       console.log(
         `Here is your declicious meggie with ${ing1} ,${ing2},${ing3}`
       );
+    },
+    orderpizza: function (onion, ...chilliandothers) {
+      console.log(onion);
+      console.log(chilliandothers);
     },
   };
   newArray.Homestay({
@@ -113,8 +117,8 @@
   //   prompt("let's make meggie Ingredients 3?"),
   // ];
   // console.log(ingredients);
-  // newArray.odermeggie(ingredients[0], ingredients[1], ingredients[2]);
-  // newArray.odermeggie(...ingredients);
+  // newArray.ordermeggie(ingredients[0], ingredients[1], ingredients[2]);
+  // newArray.ordermeggie(...ingredients);
   // //object
   // const NewArray = { founderin: 2005, ...newArrayName, name: "Saini" };
   // console.log(NewArray);
@@ -133,4 +137,15 @@
     ...newArray.fri,
   ];
   console.log(pizza, meggie, othersfood);
+  const { mon, ...otherday } = { ...newArray.openwith };
+  console.log(mon, otherday);
+  //functions
+  function add(...Numbers) {
+    let total = 0;
+    for (let i = 0; i < Numbers.length; i++) total += Numbers[i];
+    console.log(total);
+  }
+  add(2, 2, 3, 1);
+  newArray.orderpizza("onion", "chilli", "bread", "tomato");
+  newArray.orderpizza("onion");
 </script>
