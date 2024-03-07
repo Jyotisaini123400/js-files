@@ -3,7 +3,7 @@
   const newArray = {
     name: "jyoti saini",
     family: ["Darshan", "Mukesh", "Radha"],
-    fri: ["Neha", "Kajal", "sapna", "jyoti"],
+    fri: ["tomato", "potato", "garlic", "onion"],
     food: ["burger", "pizza", "pasta", "meggie"],
     order: function (foodIndex, friIndex) {
       return [this.food[foodIndex], this.fri[friIndex]];
@@ -176,18 +176,18 @@
   // console.log(a == 12 || ++b == 14);
   // console.log(b);
 
-  //Nullish : null and undefined (Not 0 or '')
-  const gustcorrect = newArray.newOpen ?? 23;
-  console.log(gustcorrect);
-  //Logical Assignment Operator
-  const rest1 = {
-    name: "Saini",
-    num: 0,
-  };
-  const rest2 = {
-    State: "Haryana",
-    pincode: 121004,
-  };
+  // //Nullish : null and undefined (Not 0 or '')
+  // const gustcorrect = newArray.newOpen ?? 23;
+  // console.log(gustcorrect);
+  // //Logical Assignment Operator
+  // const rest1 = {
+  //   name: "Saini",
+  //   num: 0,
+  // };
+  // const rest2 = {
+  //   State: "Haryana",
+  //   pincode: 121004,
+  // };
   //OR assignment operator
   // rest1.name = rest1.name || "Jyoti";
   // rest2.name = rest2.name || 80;
@@ -197,13 +197,20 @@
   // console.log(rest1);
   // console.log(rest2);
 
-  //Nullish assignmet operator (Null or undefined)
-  rest1.name ??= 80;
-  rest2.name ??= 90;
-  //AND assignment operator
-  rest1.state &&= "<ANONYMOUS>";
-  rest2.state &&= "<ANONYMOUS>";
+  // //Nullish assignmet operator (Null or undefined)
+  // rest1.name ??= 80;
+  // rest2.name ??= 90;
+  // //AND assignment operator
+  // rest1.state &&= "<ANONYMOUS>";
+  // rest2.state &&= "<ANONYMOUS>";
 
-  console.log(rest1);
-  console.log(rest2);
+  // console.log(rest1);
+  // console.log(rest2);
+  //for looping array
+  const foodFriA = [...newArray.food, ...newArray.fri];
+  // for (const item of foodFriA) console.log(item);
+  for (const item of foodFriA.entries()) {
+    console.log(`${item[0] + 1}:${item[1]}`);
+  }
+  console.log([...foodFriA.entries()]);
 </script>
