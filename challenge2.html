@@ -1,7 +1,9 @@
 <script>
+  "use strict";
   const game = {
-    team12: "HRteam",
-    team22: "DLteam",
+    team1: "HRTeam",
+    team2: "US Team",
+
     players: [
       [
         "Player1",
@@ -22,9 +24,11 @@
         "PlayerW7",
       ],
     ],
+
     score: "10:0",
     scored: ["player1", "player3", "player5", "playerW2"],
-    date: {
+    date: "March 08 2024",
+    odds: {
       team1: 1.2,
       x: 3.24,
       team2: 3.89,
@@ -43,10 +47,10 @@
   const players1Final = [...players1, "playerA1", "playerB1", "playerA2"];
 
   //5.
-  //   const {
-  //     odds: { team1, x: draw, team2 },
-  //   } = game;
-  //    console.log(team1, draw, team2);
+  const {
+    odds: { team1, x: draw, team2 },
+  } = game;
+  console.log(team1, draw, team2);
   //6.
   const printGoals = function (...players) {
     console.log(players);
@@ -61,9 +65,27 @@
     "playerW3",
     "playerw5"
   );
-  //   printGoals("player1", "player3", "player4");
+  printGoals("player1", "player3", "player4");
   printGoals(...game.scored);
   //7.
   team1 < team2 && console.log("team 1 is more likely to win");
   team1 > team2 && console.log("team 2 is more likely to win");
+  ///////////second challenge
+  //1.
+  for (const [i, player] of game.scored.entries()) {
+    console.log(`Goal ${i + 1}:${player}`);
+  }
+  //2
+  const odds = Object.values(game.odds);
+
+  let average = 0;
+  for (const odd of odds) average += odd;
+  average /= odds.length;
+  console.log(average);
+
+  //3
+  for (const [team, odd] of Object.entries(game.odds)) {
+    const teamstr = team === "x" ? "draw" : `victory ${game[team]}`;
+    console.log(`Odd of ${team} :${odd}`);
+  }
 </script>
