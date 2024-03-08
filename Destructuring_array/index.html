@@ -1,5 +1,32 @@
 <script>
   "use strict";
+  const weekdays = [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+  ];
+  const openwith = {
+    [weekdays[0]]: {
+      class1: 12,
+      class2: 21,
+    },
+    [weekdays[1]]: {
+      class4: 21,
+      class5: 31,
+    },
+    [weekdays[2]]: {
+      class6: 29,
+      class7: 32,
+    },
+    [weekdays[4]]: {
+      open: 0,
+      close: 19,
+    },
+  };
   const newArray = {
     name: "jyoti saini",
     family: ["Darshan", "Mukesh", "Radha"],
@@ -8,31 +35,19 @@
     order: function (foodIndex, friIndex) {
       return [this.food[foodIndex], this.fri[friIndex]];
     },
-    openwith: {
-      mon: {
-        class1: 12,
-        class2: 21,
-      },
-      tus: {
-        class4: 21,
-        class5: 31,
-      },
-      wed: {
-        class6: 29,
-        class7: 32,
-      },
-    },
-    Homestay: function ({ Day, time, address, foodIndex, friIndex }) {
+    //Enhanced object
+    openwith,
+    Homestay({ Day, time, address, foodIndex, friIndex }) {
       console.log(
         `Home stay ${this.fri[friIndex]} and food ${this.food[foodIndex]} today ${Day} and time ${time} address  ${address}`
       );
     },
-    ordermeggie: function (ing1, ing2, ing3) {
+    ordermeggie(ing1, ing2, ing3) {
       console.log(
         `Here is your declicious meggie with ${ing1} ,${ing2},${ing3}`
       );
     },
-    orderpizza: function (onion, ...chilliandothers) {
+    orderpizza(onion, ...chilliandothers) {
       console.log(onion);
       console.log(chilliandothers);
     },
@@ -45,35 +60,35 @@
     friIndex: 2,
   });
 
-  //Nested Objects
-  // const {
-  //   mon: { class1: c, class2: p },
-  // } = openOne;
-  // console.log(c, p);
+  // Nested Objects
+  const {
+    [weekdays[4]]: { open: c, close: p },
+  } = openwith;
+  console.log(c, p);
 
-  const { name, openOne, food } = newArray;
-  console.log(name, openOne, food);
+  // const { name, openOne, food } = newArray;
+  // console.log(name, openOne, food);
 
-  const { name: newArrayName, openOne: One, food: variety } = newArray;
-  console.log(newArrayName, One, variety);
-  //default value
-  const { food1 = [], fri: friend = [] } = newArray;
-  console.log(food1, friend);
+  // const { name: newArrayName, openOne: One, food: variety } = newArray;
+  // console.log(newArrayName, One, variety);
+  // //default value
+  // const { food1 = [], fri: friend = [] } = newArray;
+  // console.log(food1, friend);
 
   //Mutating variable
-  let a = 23;
-  let b = 21;
-  const object = { a: 12, b: 14, c: 16 };
-  ({ a, b } = object);
-  console.log(a, b);
+  // let a = 23;
+  // let b = 21;
+  // const object = { a: 12, b: 14, c: 16 };
+  // ({ a, b } = object);
+  // console.log(a, b);
 
-  const arr = [1, 2, 3, 4];
-  const A = arr[0];
-  const B = arr[1];
-  const C = arr[2];
-  const D = arr[3];
-  const [x, y, z, h] = arr;
-  console.log(x, y, z, h);
+  // const arr = [1, 2, 3, 4];
+  // const A = arr[0];
+  // const B = arr[1];
+  // const C = arr[2];
+  // const D = arr[3];
+  // const [x, y, z, h] = arr;
+  // console.log(x, y, z, h);
   //   const [first, secnond] = newArray.family;
   // console.log(first, secnond);
   // const ne1 = newArray.name;
@@ -92,24 +107,24 @@
   // const [i, , [j, k]] = nested;
   // console.log(i, j, k);
 
-  //spread Operatro
-  const arr2 = [1, 2, 3];
-  const oldarr = [4, 5, 6, arr2[0], arr2[1], arr2[2]];
-  console.log(oldarr);
-  //second ex
-  const newarray = [4, 5, 6, ...arr2];
-  console.log(newarray);
-  console.log(...newarray);
-  const newHome = [...newArray.food, "saini"];
-  console.log(newHome);
-  //copy arry
-  const copyfood = [...newArray.food];
-  const menu = [...newArray.fri, ...newArray.food];
-  console.log(menu);
-  const str = "Jyoti";
-  const newstr = [...str, "", "s."];
-  console.log(newstr);
-  console.log([...str]);
+  // //spread Operatro
+  // const arr2 = [1, 2, 3];
+  // const oldarr = [4, 5, 6, arr2[0], arr2[1], arr2[2]];
+  // console.log(oldarr);
+  // //second ex
+  // const newarray = [4, 5, 6, ...arr2];
+  // console.log(newarray);
+  // console.log(...newarray);
+  // const newHome = [...newArray.food, "saini"];
+  // console.log(newHome);
+  // //copy arry
+  // const copyfood = [...newArray.food];
+  // const menu = [...newArray.fri, ...newArray.food];
+  // console.log(menu);
+  // const str = "Jyoti";
+  // const newstr = [...str, "", "s."];
+  // console.log(newstr);
+  // console.log([...str]);
 
   // const ingredients = [
   //   prompt("let's make meggie Ingredients 1?"),
@@ -127,49 +142,49 @@
   // console.log(NewArrayCopy);
 
   //Rest pattern and parameters
-  //spread ,because on Right side of  assignment operator(=)
-  const rest = [1, 2, ...[3, 4]];
-  //Rest ,because on Left side of assignment operator(=)
-  const [a1, b1, ...others] = [1, 2, 3, 4];
-  console.log(a1, b1, others);
-  const [, pizza, , meggie, ...othersfood] = [
-    ...newArray.food,
-    ...newArray.fri,
-  ];
-  console.log(pizza, meggie, othersfood);
-  const { mon, ...otherday } = { ...newArray.openwith };
-  console.log(mon, otherday);
-  //functions
-  function add(...Numbers) {
-    let total = 0;
-    for (let i = 0; i < Numbers.length; i++) total += Numbers[i];
-    console.log(total);
-  }
-  add(2, 2, 3, 1);
-  newArray.orderpizza("onion", "chilli", "bread", "tomato");
-  newArray.orderpizza("onion");
-  //Use any data type , return any data type.short circuting
-  console.log("__________OR____________");
-  console.log(3 || "Jyoti");
-  console.log(0 || true);
-  console.log("saini" || "Jyoti");
-  console.log(null || undefined);
-  console.log(undefined || "Jyoti" || null || 0 || true || "");
+  // //spread ,because on Right side of  assignment operator(=)
+  // const rest = [1, 2, ...[3, 4]];
+  // //Rest ,because on Left side of assignment operator(=)
+  // const [a1, b1, ...others] = [1, 2, 3, 4];
+  // console.log(a1, b1, others);
+  // const [, pizza, , meggie, ...othersfood] = [
+  //  ...newArray.food,
+  //   ...newArray.fri,
+  // ];
+  // console.log(pizza, meggie, othersfood);
+  // const { mon, ...otherday } = { ...newArray.openwith };
+  // console.log(mon, otherday);
+  // //functions
+  // function add(...Numbers) {
+  //   let total = 0;
+  //   for (let i = 0; i < Numbers.length; i++) total += Numbers[i];
+  // console.log(total);
+  // }
+  // add(2, 2, 3, 1);
+  // newArray.orderpizza("onion", "chilli", "bread", "tomato");
+  // newArray.orderpizza("onion");
+  // //Use any data type , return any data type.short circuting
+  // console.log("__________OR____________");
+  // console.log(3 || "Jyoti");
+  // console.log(0 || true);
+  // console.log("saini" || "Jyoti");
+  // console.log(null || undefined);
+  // console.log(undefined || "Jyoti" || null || 0 || true || "");
 
-  newArray.newOpen = 0;
-  const guests = newArray.newOpen ? newArray.newOpen : 20;
-  console.log(guests);
-  const guests2 = newArray.newOpen || 23;
-  console.log(guests2);
-  console.log("_________AND___________");
-  console.log(0 && "saini");
-  console.log(9 && "saini");
-  console.log("hello" && 12 && null && "join");
-  //practicla
-  if (newArray.orderpizza) {
-    newArray.orderpizza("meggie pizza", "Garlic pizza");
-  }
-  newArray.ordermeggie && newArray.orderpizza("onion", "Garlic");
+  // newArray.newOpen = 0;
+  // const guests = newArray.newOpen ? newArray.newOpen : 20;
+  // console.log(guests);
+  // const guests2 = newArray.newOpen || 23;
+  // console.log(guests2);
+  // console.log("_________AND___________");
+  // console.log(0 && "saini");
+  // console.log(9 && "saini");
+  // console.log("hello" && 12 && null && "join");
+  // //practicla
+  // if (newArray.orderpizza) {
+  //   newArray.orderpizza("meggie pizza", "Garlic pizza");
+  // }
+  // newArray.ordermeggie && newArray.orderpizza("onion", "Garlic");
 
   // const add1 = 12;
   // const add2 = 14;
@@ -207,10 +222,10 @@
   // console.log(rest1);
   // console.log(rest2);
   //for looping array
-  const foodFriA = [...newArray.food, ...newArray.fri];
-  // for (const item of foodFriA) console.log(item);
-  for (const item of foodFriA.entries()) {
-    console.log(`${item[0] + 1}:${item[1]}`);
-  }
-  console.log([...foodFriA.entries()]);
+  // const foodFriA = [...newArray.food, ...newArray.fri];
+  // // for (const item of foodFriA) console.log(item);
+  // for (const item of foodFriA.entries()) {
+  //   console.log(`${item[0] + 1}:${item[1]}`);
+  // }
+  // console.log([...foodFriA.entries()]);
 </script>
