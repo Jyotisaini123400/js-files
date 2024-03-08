@@ -11,20 +11,32 @@
   ];
   const openwith = {
     [weekdays[0]]: {
-      class1: 12,
-      class2: 21,
+      class: 12,
+      open: 10,
     },
     [weekdays[1]]: {
-      class4: 21,
-      class5: 31,
+      class: 21,
+      open: 1,
     },
-    [weekdays[2]]: {
-      class6: 29,
-      class7: 32,
+    // [weekdays[2]]: {
+    //   class: 29,
+    //   open: 2,
+    // },
+    [weekdays[3]]: {
+      class: 0,
+      open: 11,
     },
     [weekdays[4]]: {
-      open: 0,
-      close: 19,
+      class: 0,
+      open: 7,
+    },
+    // [weekdays[5]]: {
+    //   class: 0,
+    //   open: 8,
+    // },
+    [weekdays[6]]: {
+      class: 0,
+      open: 9,
     },
   };
   const newArray = {
@@ -52,19 +64,19 @@
       console.log(chilliandothers);
     },
   };
-  newArray.Homestay({
-    Day: "mon",
-    time: "12:30",
-    address: "haryana",
-    foodIndex: 1,
-    friIndex: 2,
-  });
+  // newArray.Homestay({
+  //   Day: "mon",
+  //   time: "12:30",
+  //   address: "haryana",
+  //   foodIndex: 1,
+  //   friIndex: 2,
+  // });
 
   // Nested Objects
-  const {
-    [weekdays[4]]: { open: c, close: p },
-  } = openwith;
-  console.log(c, p);
+  // const {
+  //   [weekdays[4]]: { open: c, class: p },
+  // } = openwith;
+  // console.log(c, p);
 
   // const { name, openOne, food } = newArray;
   // console.log(name, openOne, food);
@@ -228,4 +240,37 @@
   //   console.log(`${item[0] + 1}:${item[1]}`);
   // }
   // console.log([...foodFriA.entries()]);
+
+  // if (newArray.openwith && newArray.openwith.monday)
+  //   console.log(newArray.openwith.monday.class);
+  // //with optional chaning
+  // console.log(newArray.openwith.monday?.class);
+  // console.log(newArray.openwith?.monday?.class);
+  //Example
+  // const days = [
+  //   "monday",
+  //   "tuesday",
+  //   "wednesday",
+  //   "thursday",
+  //   "friday",
+  //   "saturday",
+  //   "sunday",
+  // ];
+  // for (const day of days) {
+  //   console.log(day);
+  //   const open = newArray.openwith[day]?.open ?? "class";
+  //   console.log(`On ${day},we open at ${open}`);
+  // }
+  //Methods
+  console.log(newArray.order?.(0, 2) ?? "Method does not exist");
+  console.log(newArray.orderpizza?.(9, 10) ?? "Method does not exist");
+  //Array
+  const user = [
+    { name: "jyoti", email: "jyotisaini5614@gmail.com", class: "BCA" },
+  ];
+  // console.log(user[0]?.name ?? "user array ");
+  // console.log(user[0]?.name1 ?? "user array empty");
+
+  if (user.length > 0) console.log(user[0].name);
+  else console.log("user array empty");
 </script>
