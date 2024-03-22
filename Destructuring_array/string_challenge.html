@@ -9,45 +9,51 @@
 body {
   height: 100vh;
   width: 100vw;
-  background-color: skyblue;
+
   color: black;
   background: linear-gradient(to top left, #079669, #27d40c);
-  position: relative;
-  align-items: flex-start;
+ position: relative;
  
-  justify-content: center;
+  margin: auto;
 }
 h1{
 color: white;
-align-items: center;
-justify-content: center;
-text-align: center;
-margin-top: 50px;
-}
-/* #box{
-    height: 100px;
-    width: 200px;
-    background-color: white;
-    color: black;
-}
-         */
+height: 10vh;
+margin: auto; 
+width: 50vw;
+font-size: 27px;
+
+} 
+
+
     </style>
   </head>
   <body>
     <h1>DATA STRUCTURE AND MODERN OPERATOR<h1>
-        <!-- <input type="text" id="box">
-        <button type="button"> ok </button> -->
+        
   </body>
   <script>
 document.body.append(document.createElement('textarea'))
 document.body.append(document.createElement('button'))
-
 const text=document.querySelector("textarea").value;
 document.querySelector("button").addEventListener('click', function(){
 const text=document.querySelector("textarea").value;
-console.log(text);
+const split1=text.split('\n')
+// console.log(split1);
+
+for(const [i,split2] of split1.entries()){
+  const [first ,second]=split2.toLowerCase().trim().split('_')
+console.log(split2,first,second);
+const output=`${first},${second.replace(second[0],second[0].toUpperCase())}`;
+
+
+console.log(`${output.padEnd(28)}${'#'.repeat(i+1)}`);
+}
 })
-
-
+////////Examples//
+// no_yes 
+// pink_black
+// odd_even
+// sun_moon
   </script>
 </html>
