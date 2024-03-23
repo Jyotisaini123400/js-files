@@ -8,17 +8,24 @@
   <body></body>
   <script>
     const bookings = [];
-    const createbooking = function (firstname, ticketno, price) {
-      firstname = firstname || 1;
+    const createbooking = function (
+      ticketno,
+      people = 2,
+      price = 199 * people
+    ) {
+      ticketno = ticketno || 1;
 
       const booking = {
-        firstname,
         ticketno,
+        people,
         price,
       };
       console.log(booking);
-      booking.push(booking);
+      // booking.push(booking);
     };
+    createbooking("LH123");
+    createbooking("LH124", 2, 80);
+    createbooking("LH123");
     createbooking("LH123");
   </script>
 </html>
