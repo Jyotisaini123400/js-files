@@ -10,10 +10,10 @@
     const bookings = [];
     const createbooking = function (
       ticketno,
-      people = 2,
+      people = 0,
       price = 199 * people
     ) {
-      ticketno = ticketno || 1;
+      // ticketno = ticketno || 1;
 
       const booking = {
         ticketno,
@@ -21,11 +21,10 @@
         price,
       };
       console.log(booking);
-      // booking.push(booking);
+      bookings.push(booking);
     };
-    createbooking("LH123");
     createbooking("LH124", 2, 80);
-    createbooking("LH123");
-    createbooking("LH123");
+    createbooking("LH123", 1, 234);
+    createbooking("LH123", undefined, 200);
   </script>
 </html>
