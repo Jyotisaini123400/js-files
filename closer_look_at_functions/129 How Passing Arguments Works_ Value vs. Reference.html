@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const flight = "IND123";
+    const Details = {
+      name: "Jyoti",
+      passport: 23415,
+    };
+    const funct1 = function (flightname, passenger) {
+      flightname = "IND12345";
+      passenger.name = ["Dear" + passenger.name];
+
+      if (passenger.passport === 23415) {
+        alert("checked in");
+      } else {
+        alert("wrong passport");
+      }
+    };
+    // funct1(flight, Details);
+    // console.log(flight);
+    // console.log(Details);
+    const newpassport = function (persion) {
+      persion.passport = Math.trunc(Math.random() * 100000);
+    };
+    // newpassport(Details);
+    funct1(flight, Details);
+  </script>
+</html>
