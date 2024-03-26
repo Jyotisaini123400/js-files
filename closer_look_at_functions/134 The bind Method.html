@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>134 The bind Method</title>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        /* display: flex; */
+        background: linear-gradient(to top left, green, rgb(113, 190, 11));
+      }
+      button {
+        color: black;
+        background-color: white;
+        height: 10vh;
+        align-items: center;
+        width: 20vw;
+        font-size: 1rem;
+        margin: 5vw 10vw 1vw;
+      }
+      h1 {
+        height: 40px;
+        width: 34vw;
+        font-size: 2.5rem;
+        margin: 50px 33vw;
+        display: flex;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="buy">Buy the plane</button>
+    <button class="poll">Active the poll</button>
+
+    <h1>A closer look at function</h1>
+  </body>
+  <script>
+    const lists = {
+      flightname: "India",
+      flightcode: "IN",
+      booking: [],
+      book(flight, name) {
+        console.log(
+          `${name},booked a seat on ${this.flightname} flight ${this.flightcode},${flight}`
+        );
+        this.booking.push({ flight2: `${this.flightcode} ${flight}`, name });
+      },
+    };
+    lists.book(283, "Jyoit saini");
+    lists.book(583, "Abhishek saini");
+    console.log(lists);
+
+    const book = lists.book;
+
+    const swimm = {
+      flightname: "England",
+      flightcode: "EN",
+      booking: [],
+    };
+    // book.call(swimm, 44, "Modi ji");
+    // console.log(swimm);
+
+    // const bookingAn = book.bind(swimm);
+    // const bookAn = book.bind(lists);
+    // bookAn(211, "Google com");
+    // bookingAn(200, "Surakshit nivesh");
+    // const bookfl = book.bind(swimm, 987);
+    // bookfl("Shiv");
+    // bookfl("Shiv Sankar");
+    //////////with eventlistener///////////
+    lists.plane = 300;
+    lists.buyplane = function () {
+      console.log(this);
+
+      this.plane++;
+      console.log(this.plane);
+    };
+    // lists.buyplane();
+    document
+      .querySelector(".buy")
+      .addEventListener("click", lists.buyplane.bind(lists));
+    ///////////Partial Application////////
+    const addTax = (rate, value) => value + value * rate;
+    console.log(addTax(0.1, 200));
+    const addVal = addTax.bind(0.1, 0.23);
+    console.log(addVal(100));
+    console.log(addVal(10));
+
+    const addval2 = function (rate) {
+      return function (value) {
+        return value + value * rate;
+      };
+    };
+    const addTax2 = addval2(0.23);
+    console.log(addTax2(100));
+    console.log(addTax2(10));
+  </script>
+</html>
