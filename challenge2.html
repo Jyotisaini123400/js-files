@@ -1,139 +1,192 @@
-<script>
-  "use strict";
-  // const game = {
-  //   team1: "HRTeam",
-  //   team2: "US Team",
+<html>
+  <body>
+    <button
+      class="poll"
+      style="
+        color: white;
+        background-color: orange;
+        width: 300px;
+        height: 50px;
+        margin: 10vh 20vw;
+      "
+    >
+      Poll all
+    </button>
+  </body>
 
-  //   players: [
-  //     [
-  //       "Player1",
-  //       "Player2",
-  //       "Player3",
-  //       "Player4",
-  //       "Player5",
-  //       "Player6",
-  //       "Player7",
-  //     ],
-  //     [
-  //       "PlayerW1",
-  //       "PlayerW2",
-  //       "PlayerW3",
-  //       "PlayerW4",
-  //       "PlayerW5",
-  //       "PlayerW6",
-  //       "PlayerW7",
-  //     ],
-  //   ],
+  <script>
+    "use strict";
+    // const game = {
+    //   team1: "HRTeam",
+    //   team2: "US Team",
 
-  //   score: "10:0",
-  //   scored: ["player1", "player3", "player5", "playerW2"],
-  //   date: "March 08 2024",
-  //   odds: {
-  //     team1: 1.2,
-  //     x: 3.24,
-  //     team2: 3.89,
-  //   },
-  // };
-  // //All players
-  // const [players1, players2] = game.players;
-  // console.log(players1, players2);
-  // //fieldplayers
-  // const [gk, fieldplayers] = players1;
-  // console.log(gk, fieldplayers, players1);
-  // //3 combined players
-  // const allplayers = [...players1, ...players2];
-  // console.log(allplayers);
-  // //4
-  // const players1Final = [...players1, "playerA1", "playerB1", "playerA2"];
+    //   players: [
+    //     [
+    //       "Player1",
+    //       "Player2",
+    //       "Player3",
+    //       "Player4",
+    //       "Player5",
+    //       "Player6",
+    //       "Player7",
+    //     ],
+    //     [
+    //       "PlayerW1",
+    //       "PlayerW2",
+    //       "PlayerW3",
+    //       "PlayerW4",
+    //       "PlayerW5",
+    //       "PlayerW6",
+    //       "PlayerW7",
+    //     ],
+    //   ],
 
-  // //5.
-  // const {
-  //   odds: { team1, x: draw, team2 },
-  // } = game;
-  // console.log(team1, draw, team2);
-  // //6.
-  // const printGoals = function (...players) {
-  //   console.log(players);
-  //   console.log(`${players.length} goals were scored`);
-  // };
-  // printGoals(
-  //   "player1",
-  //   "player3",
-  //   "player4",
-  //   "and",
-  //   "playerW1",
-  //   "playerW3",
-  //   "playerw5"
-  // );
-  // printGoals("player1", "player3", "player4");
-  // printGoals(...game.scored);
-  // //7.
-  // team1 < team2 && console.log("team 1 is more likely to win");
-  // team1 > team2 && console.log("team 2 is more likely to win");
-  // ///////////second challenge
-  // //1.
-  // for (const [i, player] of game.scored.entries()) {
-  //   console.log(`Goal ${i + 1}:${player}`);
-  // }
-  // //2
-  // const odds = Object.values(game.odds);
+    //   score: "10:0",
+    //   scored: ["player1", "player3", "player5", "playerW2"],
+    //   date: "March 08 2024",
+    //   odds: {
+    //     team1: 1.2,
+    //     x: 3.24,
+    //     team2: 3.89,
+    //   },
+    // };
+    // //All players
+    // const [players1, players2] = game.players;
+    // console.log(players1, players2);
+    // //fieldplayers
+    // const [gk, fieldplayers] = players1;
+    // console.log(gk, fieldplayers, players1);
+    // //3 combined players
+    // const allplayers = [...players1, ...players2];
+    // console.log(allplayers);
+    // //4
+    // const players1Final = [...players1, "playerA1", "playerB1", "playerA2"];
 
-  // let average = 0;
-  // for (const odd of odds) average += odd;
-  // average /= odds.length;
-  // console.log(average);
+    // //5.
+    // const {
+    //   odds: { team1, x: draw, team2 },
+    // } = game;
+    // console.log(team1, draw, team2);
+    // //6.
+    // const printGoals = function (...players) {
+    //   console.log(players);
+    //   console.log(`${players.length} goals were scored`);
+    // };
+    // printGoals(
+    //   "player1",
+    //   "player3",
+    //   "player4",
+    //   "and",
+    //   "playerW1",
+    //   "playerW3",
+    //   "playerw5"
+    // );
+    // printGoals("player1", "player3", "player4");
+    // printGoals(...game.scored);
+    // //7.
+    // team1 < team2 && console.log("team 1 is more likely to win");
+    // team1 > team2 && console.log("team 2 is more likely to win");
+    // ///////////second challenge
+    // //1.
+    // for (const [i, player] of game.scored.entries()) {
+    //   console.log(`Goal ${i + 1}:${player}`);
+    // }
+    // //2
+    // const odds = Object.values(game.odds);
 
-  // //3
-  // for (const [team, odd] of Object.entries(game.odds)) {
-  //   const teamstr = team === "x" ? "draw" : `victory ${game[team]}`;
-  //   console.log(`Odd of ${team} :${odd}`);
-  // }
-  ///////////////////////////////////NEW CHALLENGE//////////////////////////////////////////////
+    // let average = 0;
+    // for (const odd of odds) average += odd;
+    // average /= odds.length;
+    // console.log(average);
 
-  // const newEvent = new Map([
-  //   [67, "Goal"],
-  //   [41, "substitution"],
-  //   [52, "Goal"],
-  //   [73, "yoga"],
-  //   [74, "Yellow card"],
-  //   [95, "Goal"],
-  //   [86, "substitution"],
-  // ]);
-  // const event = [...new Set(newEvent.values())];
-  // console.log(event);
-  // newEvent.delete(73);
-  // console.log(newEvent);
-  // console.log(`An event happend on everage every ${90 / newEvent.size} min`);
-  // ////////////time
-  // const time = [...newEvent.keys()].pop();
-  // console.log(time);
+    // //3
+    // for (const [team, odd] of Object.entries(game.odds)) {
+    //   const teamstr = team === "x" ? "draw" : `victory ${game[team]}`;
+    //   console.log(`Odd of ${team} :${odd}`);
+    // }
+    ///////////////////////////////////NEW CHALLENGE//////////////////////////////////////////////
 
-  // console.log(`An event happend on everage every ${time / newEvent.size} min`);
-  // //////////////looping //////////
-  // for (const [min, event] of newEvent) {
-  //   const half = min <= 55 ? "FIRST" : "SECOND";
-  //   console.log(`[${half} Half] ${min}:${event}`);
-  // }
-  //////////working with string////
-  const first = "The Goal";
-  // console.log("23bbd"[0]);
-  // console.log(first[0]);
-  // console.log(first[4]);
-  // console.log(first.length);
-  // console.log(first.indexOf("l"));////count the index of string
-  // console.log(first.lastIndexOf("l"));
-  // console.log(first.slice(0, 9));
-  // console.log(first.slice(0, first.indexOf(" ")));
-  // console.log(first.slice(first.lastIndexOf(" ")));
-  // console.log(first.slice(first.lastIndexOf(" ")));
-  //uppercase and lowercase cabitilization
-  // const name1 = "JyOTi";
-  // console.log(name1.toUpperCase());
-  // console.log(name1.toLowerCase());
-  const fname = "jYotI";
-  const Sname = "Jyoit";
-  const normalname = fname.toLowerCase();
-  const trimename = fname.trim(); //realname
-  console.log(normalname);
-  console.log(trimename);
-</script>
+    // const newEvent = new Map([
+    //   [67, "Goal"],
+    //   [41, "substitution"],
+    //   [52, "Goal"],
+    //   [73, "yoga"],
+    //   [74, "Yellow card"],
+    //   [95, "Goal"],
+    //   [86, "substitution"],
+    // ]);
+    // const event = [...new Set(newEvent.values())];
+    // console.log(event);
+    // newEvent.delete(73);
+    // console.log(newEvent);
+    // console.log(`An event happend on everage every ${90 / newEvent.size} min`);
+    // ////////////time
+    // const time = [...newEvent.keys()].pop();
+    // console.log(time);
+
+    // console.log(`An event happend on everage every ${time / newEvent.size} min`);
+    // //////////////looping //////////
+    // for (const [min, event] of newEvent) {
+    //   const half = min <= 55 ? "FIRST" : "SECOND";
+    //   console.log(`[${half} Half] ${min}:${event}`);
+    // }
+    //////////working with string////
+    // const first = "The Goal";
+    // console.log("23bbd"[0]);
+    // console.log(first[0]);
+    // console.log(first[4]);
+    // console.log(first.length);
+    // console.log(first.indexOf("l"));////count the index of string
+    // console.log(first.lastIndexOf("l"));
+    // console.log(first.slice(0, 9));
+    // console.log(first.slice(0, first.indexOf(" ")));
+    // console.log(first.slice(first.lastIndexOf(" ")));
+    // console.log(first.slice(first.lastIndexOf(" ")));
+    //uppercase and lowercase cabitilization
+    // const name1 = "JyOTi";
+    // console.log(name1.toUpperCase());
+    // console.log(name1.toLowerCase());
+    // const fname = "jYotI";
+    // const Sname = "Jyoit";
+    // const normalname = fname.toLowerCase();
+    // const trimename = fname.trim(); //realname
+    // console.log(normalname);
+    // console.log(trimename);
+    //////////////////////////////////NEW CHALLENGE FUNCTIONS///////////////////////////////////////////////
+    const poll = {
+      question: "What is your favourite programming language",
+      options: ["0:Java script", "1:C++", "2:Python", "3:Java"],
+
+      answers: new Array(4).fill(0),
+      registerdNewArray() {
+        ////Get the answer
+        const answer = prompt(
+          `${this.question}\n ${this.options.join(
+            "\n"
+          )}\n (write option number)`
+        );
+        console.log(answer);
+        ///register the answer
+        typeof answer === "number" &&
+          answer < this.answer.length &&
+          this.answers[answer]++;
+        console.log(this.answer);
+        this.displayresult();
+        this.displayresult("string");
+      },
+      displayresult(type = "array") {
+        if (type === "array") {
+          console.log(this.answers);
+        } else if (type === "string") {
+          console.log(`poll result are${this.answers.join(",")}`);
+        }
+      },
+    };
+    document
+      .querySelector(".poll")
+      .addEventListener("click", poll.registerdNewArray.bind(poll));
+
+    poll.displayresult.call({ answers: [2, 3, 4] }, "string");
+    poll.displayresult.call({ answers: [2, 3, 4, 8, 9, 0] });
+  </script>
+</html>
