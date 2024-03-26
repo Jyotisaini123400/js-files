@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button">click</button>
+  </body>
+  <script>
+    const classfunction = function (str) {
+      return str.replace(/ /g, " ").toUpperCase();
+    };
+    const upperfirstword = function (str) {
+      const [first, ...others] = str.split(" ");
+      return [first.toUpperCase(), ...others].join(" ");
+    };
+    // console.log(upperfirstword("jyoitsaini"));
+    //////////////HIGHER ODER FUNCTIONS////////////////////////////
+    const Higherorderfun = function (str, fn) {
+      console.log(`Original string transform ${str}`);
+      console.log(`Transform string ${fn(str)}`);
+      console.log(`Transform By : ${fn.name}`);
+    };
+    Higherorderfun("Javascript is the best !", upperfirstword);
+    Higherorderfun("Javascript is the best !", classfunction);
+
+    const higher = function () {
+      console.log("Hii");
+    };
+    document.body.addEventListener("click", higher);
+    ["kuku", "open", "close"].forEach(higher);
+  </script>
+</html>
