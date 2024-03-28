@@ -4,10 +4,11 @@
       class="poll"
       style="
         color: white;
-        background-color: orange;
+        background-color: rgb(221, 217, 210);
         width: 300px;
         height: 50px;
         margin: 10vh 20vw;
+        font-size: 2rem;
       "
     >
       Poll all
@@ -153,40 +154,48 @@
     // console.log(normalname);
     // console.log(trimename);
     //////////////////////////////////NEW CHALLENGE FUNCTIONS///////////////////////////////////////////////
-    const poll = {
-      question: "What is your favourite programming language",
-      options: ["0:Java script", "1:C++", "2:Python", "3:Java"],
+    // const poll = {
+    //   question: "What is your favourite programming language",
+    //   options: ["0:Java script", "1:C++", "2:Python", "3:Java"],
 
-      answers: new Array(4).fill(0),
-      registerdNewArray() {
-        ////Get the answer
-        const answer = prompt(
-          `${this.question}\n ${this.options.join(
-            "\n"
-          )}\n (write option number)`
-        );
-        console.log(answer);
-        ///register the answer
-        typeof answer === "number" &&
-          answer < this.answer.length &&
-          this.answers[answer]++;
-        console.log(this.answer);
-        this.displayresult();
-        this.displayresult("string");
-      },
-      displayresult(type = "array") {
-        if (type === "array") {
-          console.log(this.answers);
-        } else if (type === "string") {
-          console.log(`poll result are${this.answers.join(",")}`);
-        }
-      },
-    };
-    document
-      .querySelector(".poll")
-      .addEventListener("click", poll.registerdNewArray.bind(poll));
+    //   answers: new Array(4).fill(0),
+    //   registerdNewArray() {
+    //     ////Get the answer
+    //     const answer = prompt(
+    //       `${this.question}\n ${this.options.join(
+    //         "\n"
+    //       )}\n (write option number)`
+    //     );
+    //     console.log(answer);
+    //     ///register the answer
+    //     typeof answer === "number" &&
+    //       answer < this.answer.length &&
+    //       this.answers[answer]++;
+    //     console.log(this.answer);
+    //     this.displayresult();
+    //     this.displayresult("string");
+    //   },
+    //   displayresult(type = "array") {
+    //     if (type === "array") {
+    //       console.log(this.answers);
+    //     } else if (type === "string") {
+    //       console.log(`poll result are${this.answers.join(",")}`);
+    //     }
+    //   },
+    // };
+    // document
+    //   .querySelector(".poll")
+    //   .addEventListener("click", poll.registerdNewArray.bind(poll));
 
-    poll.displayresult.call({ answers: [2, 3, 4] }, "string");
-    poll.displayresult.call({ answers: [2, 3, 4, 8, 9, 0] });
+    // poll.displayresult.call({ answers: [2, 3, 4] }, "string");
+    // poll.displayresult.call({ answers: [2, 3, 4, 8, 9, 0] });
+    (function () {
+      const hearder = document.querySelector("button");
+      hearder.style.color = "blue";
+
+      document.querySelector("body").addEventListener("click", function () {
+        hearder.style.color = "hotpink";
+      });
+    })();
   </script>
 </html>
