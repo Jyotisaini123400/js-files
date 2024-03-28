@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>144 looping array foreach</title>
+  </head>
+  <body>
+    <script>
+      const movements = [100, 200, 300, 400, -10, -220, -330, -454];
+      //   for (const movement of movements)
+      for (const [i, movement] of movements.entries()) {
+        if (movement > 0) {
+          console.log(`Movement ${i + 1}: You deposited ${movement}`);
+        } else {
+          console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+        }
+      }
+      console.log("----------------FOREACH --------------");
+      movements.forEach(function (mov, i, arr) {
+        if (mov > 0) {
+          console.log(`Movement ${i + 1}: You deposited ${mov}`);
+        } else {
+          console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
+        }
+      });
+    </script>
+  </body>
+</html>
