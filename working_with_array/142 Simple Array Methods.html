@@ -6,6 +6,39 @@
     <title>142 Simple Array Methods</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      ///////SCLICE METHOD
+      console.log("-----------SLICE METHOD----------------------");
+      let arr = ["a", "b", "c", "d", "e"];
+
+      console.log(arr.slice(1));
+      console.log(arr.slice(1, 4));
+      console.log(arr.slice(2, -1));
+      console.log(arr.slice(-2));
+      console.log(arr.slice(-1, -4));
+      // console.log(arr.slice());
+      console.log([...arr]);
+      // arr.slice(1);
+      ///////SCLICE METHOD
+      console.log("-----------SPLICE METHOD----------------------");
+      // console.log(arr.splice(1));
+      arr.splice(-1);
+      console.log(arr);
+      arr.splice(1, -4);
+      console.log(arr);
+      console.log("-----------REVERSE----------------------");
+      arr = ["a", "b", "c", "d", "e"];
+      const arr2 = ["f", "g", "h", "i", "j", "k", "m", "n", "o"];
+      console.log(arr2);
+      console.log(arr2.reverse());
+      console.log(arr2);
+      console.log("-----------CONCAT----------------------");
+      const letters = arr.concat(arr2);
+      console.log(letters);
+      console.log([...arr, ...arr2]);
+
+      console.log("-----------JOIN----------------------");
+      console.log(letters.join(" - "));
+    </script>
   </body>
 </html>
