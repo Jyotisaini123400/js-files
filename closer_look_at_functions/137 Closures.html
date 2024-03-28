@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const secureBooking = function () {
+        let person = 0;
+        return function () {
+          person++;
+          console.log(`${person} [person]`);
+        };
+      };
+      const book = secureBooking();
+      book();
+      book();
+      book();
+      book();
+      book();
+    </script>
+  </body>
+</html>
