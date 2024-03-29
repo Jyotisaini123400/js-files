@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>146 PROJECT_ _Bankist_ App</title>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        position: absolute;
+        margin: 0;
+        padding: 0;
+      }
+      nav {
+        padding: 0;
+        margin: 0;
+        font-size: 1.5rem;
+        align-items: center;
+        color: black;
+        background-color: #fff;
+        position: relative;
+        height: 10vh;
+        width: 100vw;
+        border: 1.2px solid rgb(71, 69, 69);
+        display: flex;
+        text-align: center;
+        /* justify-content: center; */
+      }
+
+      /* form {
+        display: flex;
+        height: 4vh;
+        width: 30vw;
+        margin-left: 42vw;
+      }
+
+      input {
+        margin-left: 20px;
+      }
+      button {
+        margin-left: 10px;
+      } */
+      .app {
+        margin: 4rem auto;
+        max-width: 100rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: 2px solid black;
+        position: absolute;
+        display: grid;
+        grid-template-columns: 4fr 3fr;
+        grid-row: auto repeat(3, 15rem) auto;
+        gap: 2rem;
+        opacity: 0;
+        transition: all 1s;
+      }
+      .login {
+        display: flex;
+      }
+      .login_input {
+        border: none;
+        padding: 0.5rem 2rem;
+        font-size: 1.6rem;
+        font-family: inherit;
+        text-align: center;
+        width: 12rem;
+        border-radius: 10rem;
+        margin-right: 1rem;
+        color: inherit;
+        transition: all 0.3s;
+        border: 1px solid white;
+      }
+      .login_input:focus {
+        outline: none;
+        border: 1px solid white;
+      }
+      .login_input::placeholder {
+        color: rgb(68, 67, 67);
+      }
+      .login_btn {
+        border: none;
+        background-color: none;
+        font-size: 1.9rem;
+        color: inherit;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .login_btn:focus,
+      .login_btn:hover,
+      .btn_short:hover,
+      .btn_short:focus {
+        outline: none;
+        color: rgb(43, 41, 41);
+      }
+      .movements {
+        grid-row: 2 / span 3;
+        background-color: white;
+        border-radius: 1rem;
+        overflow: scroll;
+      }
+      .movement_row {
+        padding: 2.25rem 4rem;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid white;
+      }
+      .movement_type {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: black;
+        padding: 0.1rem 1rem;
+        border-radius: 10rem;
+        margin-right: 2rem;
+      }
+      .movement_date {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: black;
+      }
+      .movement_type--deposit {
+        background-image: linear-gradient(
+          to top left,
+          rgb(55, 173, 219),
+          rgb(6, 161, 6)
+        );
+      }
+      .movement_type--withdraw {
+        background-image: linear-gradient(
+          to top left,
+          rgb(236, 71, 107),
+          rgb(228, 14, 49)
+        );
+      }
+
+      .balance {
+        grid-column: 1 / span 2;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+      }
+      .balance_lable {
+        font-size: 1.4rem;
+        font-weight: 400;
+      }
+      .balance_value {
+        font-size: 4.5rem;
+        font-weight: 400;
+      }
+      /* summary */
+      .summary {
+        grid-row: 5/6;
+        display: flex;
+        align-items: baseline;
+        padding: 0 0.3rem;
+        margin-top: 1rem;
+      }
+      .summery_lable {
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-right: 0.8rem;
+      }
+      .summery_value {
+        font-size: 2.2rem;
+        margin-right: 2.2rem;
+      }
+      .summery_value_in,
+      .summary_value-interest {
+        color: green;
+      }
+      .summery_value-out {
+        color: crimson;
+      }
+      .btn_short {
+        margin-left: auto;
+        border: none;
+        background: none;
+        font-size: 1.3rem;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      /* OPERATIONS  */
+      .operations {
+        border-radius: 1rem;
+        padding: 3rem 4rem;
+        color: rgb(49, 44, 44);
+      }
+      .operator-transfer {
+        background-image: linear-gradient(
+          to top left,
+          yellow,
+          rgb(192, 192, 15)
+        );
+      }
+      .oprator-loan {
+        background-image: linear-gradient(
+          to top left,
+          rgb(15, 131, 177),
+          rgb(10, 180, 10)
+        );
+      }
+      .oprator-close {
+        background-image: linear-gradient(
+          to top left,
+          rgb(223, 17, 68),
+          rgb(206, 43, 70)
+        );
+      }
+      h2 {
+        margin-bottom: 1.5rem;
+        font-size: 1.7rem;
+        font-weight: 600;
+        color: rgb(29, 27, 27);
+      }
+      .form {
+        display: grid;
+        grid-template-columns: 2.5fr 2.5fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 0.4rem 1rem;
+      }
+      .form.form-loan {
+        grid-template-columns: 2.5fr 1fr 2.5fr;
+      }
+      .form_lable-loan {
+        grid-row: 2;
+      }
+      .form_input {
+        width: 100%;
+        border: none;
+        background-color: rgb(68, 64, 64);
+        font-family: inherit;
+        font-size: 1.5rem;
+        text-align: center;
+        color: #333;
+        padding: 0.3rem 1rem;
+        border-radius: 0.7rem;
+        transition: all 0.3s;
+      }
+      .form_input:focus {
+        outline: none;
+        background-color: #333;
+      }
+      .form_lable {
+        font-size: 1.3rem;
+        text-align: center;
+      }
+      .form_btn {
+        border: none;
+        border-radius: 0.7rem;
+        font-size: 1.8rem;
+        background-color: rgb(236, 217, 217);
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .form_btn:focus {
+        outline: none;
+        background-color: rgb(219, 209, 209);
+      }
+      .logout_timer {
+        padding: 0 0.3rem;
+        margin-top: 1.9rem;
+        text-align: right;
+        font-size: 1.25rem;
+      }
+      .timer {
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <----------Navigation Bar--------------------------->
+    <nav>
+      <p class="welcome">Log in to get start</p>
+      <form class="login">
+        <!-- input user name  -->
+        <input
+          type="text"
+          placeholder="User"
+          class="login_input login_input_user"
+        />
+        <!-- Input Pin code -->
+        <input
+          type="text"
+          placeholder="pin"
+          maxlength="4"
+          class="login_input login_input_pin"
+        />
+
+        <button class="login_btn">&rarr;</button>
+      </form>
+    </nav>
+    <main class="app">
+      <div class="balance">
+        <div>
+          <p class="balance_lable">Current Balance</p>
+          <p class="balance_date">As of <span class="date">29/03/2024</span></p>
+        </div>
+        <p class="balance_value">0000</p>
+      </div>
+      <!-- Movments  -->
+      <div class="movements">
+        <div class="movements_row">
+          <div class="movement_type movementns_type--deposit">2 deposit</div>
+          <div class="movemetn_date">3 days ago</div>
+          <div class="movement_value">4000</div>
+        </div>
+        <div class="movements_row">
+          <div class="movement_type movementns_type--withdrawal">
+            1 Withdraw
+          </div>
+          <div class="movemetn_date">2 -29/03/2024</div>
+          <div class="movement_value">-2000</div>
+        </div>
+      </div>
+      <!-- summary  -->
+      <div class="summary">
+        <p class="summary_label">In</p>
+        <p class="summary_value summery_value_in">000</p>
+      </div>
+    </main>
+  </body>
+  <script>
+    const account1 = {
+      owner: "Jyoti saini",
+      movements: [100, 200, 340, 450, -200, -430, -300],
+      interestRate: 2.5,
+      pin_code: 9289,
+    };
+    const account2 = {
+      owner: "Sanjana",
+      movements: [800, 300, 340, 650, -250, -930, -100],
+      interestRate: 1.5,
+      pin_code: 999,
+    };
+    const account3 = {
+      owner: "Abhishek",
+      movements: [500, 250, 640, 400, -400, -730, -200],
+      interestRate: 2,
+      pin_code: 8791,
+    };
+    const account4 = {
+      owner: "Laxmi",
+      movements: [900, 600, 500, 150, -500, -130, -210],
+      interestRate: 3.5,
+      pin_code: 9871,
+    };
+    ////////////////////Elements////////////////////////
+    const labelwelcome = document.querySelector(".welcome");
+    const labelDate = document.querySelector(".date");
+    const labelBalance = document.querySelector(".balance_value");
+    const labelsumIn = document.querySelector(".summery_value-in");
+    const labelsumOut = document.querySelector(".summery_value-out");
+    const labelsumInterest = document.querySelector(".summery_value-interest");
+    const labelTimer = document.querySelector(".timer");
+    const containerApp = document.querySelector(".app");
+    const containermovements = document.querySelector(".movements");
+    const btnlogin = document.querySelector(".login_btn");
+    const btnTransfer = document.querySelector(".form_btn-transfer");
+    const btnloan = document.querySelector(".form_btn-loan");
+    const btnclose = document.querySelector(".form_btn-close");
+    const btnshort = document.querySelector(".btn-short");
+    const inputusername = document.querySelector(".login_input-user");
+    const inputpincode = document.querySelector(".login_input-pin");
+    const inputTransferto = document.querySelector(".form_input-to");
+    const inputTransferAmount = document.querySelector(".form_input-amount");
+    const inputLoanAmount = document.querySelector(".form_input-loan-amount");
+    const inputcloserusername = document.querySelector(".form_input-user");
+    const inputcloserpincode = document.querySelector(".form_input-pin");
+  </script>
+</html>
