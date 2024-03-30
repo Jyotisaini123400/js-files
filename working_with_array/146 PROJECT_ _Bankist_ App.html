@@ -14,7 +14,7 @@
         font-family: "poppins", sens-serif;
         color: #333;
         height: 100vh;
-        background-color: white;
+        background-color: rgba(168, 161, 161, 0.418);
         padding: 2rem;
       }
       nav {
@@ -32,11 +32,11 @@
 
       .app {
         margin: 1rem auto;
-        max-width: 100rem;
+        max-width: 70rem;
         justify-content: center;
         align-items: center;
         text-align: center;
-        border: 2px solid black;
+        /* border: 1px solid rgb(122, 118, 118); */
         position: relative;
         display: grid;
         grid-template-columns: 4fr 3fr;
@@ -72,7 +72,8 @@
         border: none;
         background-color: none;
         font-size: 1.9rem;
-        color: inherit;
+        text-align: center;
+        justify-content: center;
         cursor: pointer;
         transition: all 0.3s;
       }
@@ -81,7 +82,7 @@
       .btn_short:hover,
       .btn_short:focus {
         outline: none;
-        color: rgb(43, 41, 41);
+        color: rgba(43, 41, 41, 0.377);
       }
       .movements {
         grid-row: 2 / span 3;
@@ -147,7 +148,6 @@
       }
       /* summary */
       .summary {
-        background-color: orange;
         grid-row: 5/6;
         display: flex;
         align-items: baseline;
@@ -190,7 +190,7 @@
       /* OPERATIONS  */
       .operations {
         border-radius: 1rem;
-        /* padding: 2rem 2rem; */
+        padding: 1rem 0.1rem;
         color: rgb(39, 37, 37);
       }
       .operator-transfer {
@@ -321,6 +321,32 @@
           <div class="movement_value">-345&#8377;</div>
         </div>
       </div>
+      <!-- transfer  -->
+      <div class="operations">
+        <div class="operations operator-transfer">
+          <h2 class="form_label">Transfer</h2>
+          <input type="text" class="form_input" />
+          <input type="text" class="form_input" />
+          <button class="form_btn">&rarr;</button>
+        </div>
+      </div>
+      <div class="operations">
+        <div class="operations oprator-loan">
+          <h2 class="form_label-loan">Request loan</h2>
+          <input type="text" class="form_input form_input-loan" />
+          <button class="form_btn">&rarr;</button>
+        </div>
+      </div>
+      <div class="operations">
+        <div class="operations oprator-close">
+          <h2 class="form_label">Close Account</h2>
+          <input type="text" class="form_input" />
+          <input type="text" class="form_input" />
+
+          <button class="form_btn">&rarr;</button>
+        </div>
+      </div>
+
       <!-- summary  -->
       <div class="summary">
         <div class="sm">
@@ -335,26 +361,7 @@
           <p class="summary_label">Interest</p>
           <p class="summary_value summery_value-interest">000</p>
         </div>
-        <button type="button" class="btn_short">&rarr;</button>
-      </div>
-      <!-- transfer  -->
-      <div class="operations operator-transfer">
-        <h2 class="form_label">Transfer</h2>
-        <input type="text" class="form_input" />
-        <input type="text" class="form_input" />
-        <button class="form_btn">&rarr;</button>
-      </div>
-      <div class="operations oprator-loan">
-        <h2 class="form_label-loan">Request loan</h2>
-        <input type="text" class="form_input form_input-loan" />
-        <button class="form_btn">&rarr;</button>
-      </div>
-      <div class="operations oprator-close">
-        <h2 class="form_label">Close Account</h2>
-        <input type="text" class="form_input" />
-        <input type="text" class="form_input" />
-
-        <button class="form_btn">&rarr;</button>
+        <button type="button" class="btn_short">short &rarr;</button>
       </div>
       <!-- logout and timer  -->
       <div class="logout_timer">
@@ -410,6 +417,7 @@
     const inputcloserusername = document.querySelector(".form_input-user");
     const inputcloserpincode = document.querySelector(".form_input-pin");
     const displayMovements = function (movements) {
+      containermovements.innerHTML = " ";
       movements.forEach(function (mov, i) {
         const type = mov > 0 ? "deposit" : "withdraw";
         const html = `
