@@ -5,56 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>146 PROJECT_ _Bankist_ App</title>
     <style>
-      body {
-        height: 100vh;
-        width: 100vw;
-        overflow: hidden;
-        position: absolute;
+      * {
+        box-sizing: inherit;
         margin: 0;
         padding: 0;
+      }
+      body {
+        font-family: "poppins", sens-serif;
+        color: #333;
+        height: 100vh;
+        background-color: white;
+        padding: 2rem;
       }
       nav {
-        padding: 0;
-        margin: 0;
-        font-size: 1.5rem;
         align-items: center;
-        color: black;
-        background-color: #fff;
-        position: relative;
-        height: 10vh;
-        width: 100vw;
-        border: 1.2px solid rgb(71, 69, 69);
+        justify-content: space-between;
         display: flex;
-        text-align: center;
-        /* justify-content: center; */
+        padding: 0.2rem;
+        font-size: 1.5rem;
       }
 
-      /* form {
-        display: flex;
-        height: 4vh;
-        width: 30vw;
-        margin-left: 42vw;
+      .welcome {
+        font-size: 1.4rem;
+        font-weight: 600;
       }
 
-      input {
-        margin-left: 20px;
-      }
-      button {
-        margin-left: 10px;
-      } */
       .app {
-        margin: 4rem auto;
+        margin: 1rem auto;
         max-width: 100rem;
         justify-content: center;
         align-items: center;
         text-align: center;
         border: 2px solid black;
-        position: absolute;
+        position: relative;
         display: grid;
         grid-template-columns: 4fr 3fr;
         grid-row: auto repeat(3, 15rem) auto;
         gap: 2rem;
-        opacity: 0;
+        /* opacity: 0; */
         transition: all 1s;
       }
       .login {
@@ -101,20 +89,23 @@
         border-radius: 1rem;
         overflow: scroll;
       }
-      .movement_row {
-        padding: 2.25rem 4rem;
+      .movement_value {
+        margin: 9px auto;
+      }
+      .movements_row {
+        padding: 2.5rem 3rem;
         display: flex;
         align-items: center;
         border-bottom: 1px solid white;
       }
       .movement_type {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         text-transform: uppercase;
-        font-weight: 500;
+        font-weight: 450;
         color: black;
         padding: 0.1rem 1rem;
         border-radius: 10rem;
-        margin-right: 2rem;
+        margin-right: 1rem;
       }
       .movement_date {
         font-size: 1.1rem;
@@ -122,14 +113,14 @@
         font-weight: 500;
         color: black;
       }
-      .movement_type--deposit {
+      .movements_type-deposit {
         background-image: linear-gradient(
           to top left,
           rgb(55, 173, 219),
           rgb(6, 161, 6)
         );
       }
-      .movement_type--withdraw {
+      .movements_type-withdraw {
         background-image: linear-gradient(
           to top left,
           rgb(236, 71, 107),
@@ -145,32 +136,43 @@
         margin-bottom: 2rem;
       }
       .balance_lable {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         font-weight: 400;
+        margin-left: 20px;
       }
       .balance_value {
-        font-size: 4.5rem;
+        font-size: 2.5rem;
         font-weight: 400;
+        margin-right: 20px;
       }
       /* summary */
       .summary {
+        background-color: orange;
         grid-row: 5/6;
         display: flex;
         align-items: baseline;
         padding: 0 0.3rem;
         margin-top: 1rem;
       }
+      .sm {
+        display: flex;
+        margin-left: 20px;
+      }
       .summery_lable {
         font-size: 1.2rem;
         font-weight: 500;
         text-transform: uppercase;
-        margin-right: 0.8rem;
+        margin-left: 6rem;
+        width: 400px;
+        height: 40px;
+        justify-content: space-between;
       }
       .summery_value {
         font-size: 2.2rem;
+
         margin-right: 2.2rem;
       }
-      .summery_value_in,
+      .summery_value-in,
       .summary_value-interest {
         color: green;
       }
@@ -188,14 +190,14 @@
       /* OPERATIONS  */
       .operations {
         border-radius: 1rem;
-        padding: 3rem 4rem;
-        color: rgb(49, 44, 44);
+        /* padding: 2rem 2rem; */
+        color: rgb(39, 37, 37);
       }
       .operator-transfer {
         background-image: linear-gradient(
           to top left,
           yellow,
-          rgb(192, 192, 15)
+          rgb(231, 231, 57)
         );
       }
       .oprator-loan {
@@ -209,7 +211,7 @@
         background-image: linear-gradient(
           to top left,
           rgb(223, 17, 68),
-          rgb(206, 43, 70)
+          rgb(212, 97, 116)
         );
       }
       h2 {
@@ -222,31 +224,34 @@
         display: grid;
         grid-template-columns: 2.5fr 2.5fr 1fr;
         grid-template-rows: auto auto;
-        gap: 0.4rem 1rem;
+        width: 12vw;
+        display: inline;
+        margin-bottom: 20px;
       }
       .form.form-loan {
         grid-template-columns: 2.5fr 1fr 2.5fr;
       }
-      .form_lable-loan {
+      .form_label-loan {
         grid-row: 2;
       }
       .form_input {
-        width: 100%;
+        width: 30%;
         border: none;
-        background-color: rgb(68, 64, 64);
+        background-color: rgba(248, 239, 239, 0.438);
         font-family: inherit;
         font-size: 1.5rem;
         text-align: center;
-        color: #333;
+        color: #272525;
         padding: 0.3rem 1rem;
         border-radius: 0.7rem;
+        margin-bottom: 10px;
         transition: all 0.3s;
       }
       .form_input:focus {
         outline: none;
-        background-color: #333;
+        background-color: #cec1c173;
       }
-      .form_lable {
+      .form_label {
         font-size: 1.3rem;
         text-align: center;
       }
@@ -306,22 +311,54 @@
       <!-- Movments  -->
       <div class="movements">
         <div class="movements_row">
-          <div class="movement_type movementns_type--deposit">2 deposit</div>
-          <div class="movemetn_date">3 days ago</div>
-          <div class="movement_value">4000</div>
+          <div class="movement_type movements_type-deposit">2 deposit</div>
+          <div class="movement_date">3 days ago</div>
+          <div class="movement_value">4000 &#8377;</div>
         </div>
         <div class="movements_row">
-          <div class="movement_type movementns_type--withdrawal">
-            1 Withdraw
-          </div>
+          <div class="movement_type movements_type-withdraw">1 Withdraw</div>
           <div class="movemetn_date">2 -29/03/2024</div>
-          <div class="movement_value">-2000</div>
+          <div class="movement_value">-345&#8377;</div>
         </div>
       </div>
       <!-- summary  -->
       <div class="summary">
-        <p class="summary_label">In</p>
-        <p class="summary_value summery_value_in">000</p>
+        <div class="sm">
+          <p class="summary_label">In</p>
+          <p class="summary_value summery_value-in">000</p>
+        </div>
+        <div class="sm">
+          <p class="summary_label">Out</p>
+          <p class="summary_value summery_value-out">000</p>
+        </div>
+        <div class="sm">
+          <p class="summary_label">Interest</p>
+          <p class="summary_value summery_value-interest">000</p>
+        </div>
+        <button type="button" class="btn_short">&rarr;</button>
+      </div>
+      <!-- transfer  -->
+      <div class="operations operator-transfer">
+        <h2 class="form_label">Transfer</h2>
+        <input type="text" class="form_input" />
+        <input type="text" class="form_input" />
+        <button class="form_btn">&rarr;</button>
+      </div>
+      <div class="operations oprator-loan">
+        <h2 class="form_label-loan">Request loan</h2>
+        <input type="text" class="form_input form_input-loan" />
+        <button class="form_btn">&rarr;</button>
+      </div>
+      <div class="operations oprator-close">
+        <h2 class="form_label">Close Account</h2>
+        <input type="text" class="form_input" />
+        <input type="text" class="form_input" />
+
+        <button class="form_btn">&rarr;</button>
+      </div>
+      <!-- logout and timer  -->
+      <div class="logout_timer">
+        <p>you will be logged out in <span class="timer">05:00</span></p>
       </div>
     </main>
   </body>
@@ -372,5 +409,20 @@
     const inputLoanAmount = document.querySelector(".form_input-loan-amount");
     const inputcloserusername = document.querySelector(".form_input-user");
     const inputcloserpincode = document.querySelector(".form_input-pin");
+    const displayMovements = function (movements) {
+      movements.forEach(function (mov, i) {
+        const type = mov > 0 ? "deposit" : "withdraw";
+        const html = `
+        <div class="movements_row">
+          <div class="movement_type movements_type-${type}">${
+          i + 1
+        } ${type}</div>
+         
+          <div class="movement_value">${mov}</div>
+        `;
+        containermovements.insertAdjacentHTML("afterbegin", html);
+      });
+    };
+    displayMovements(account1, movements);
   </script>
 </html>
